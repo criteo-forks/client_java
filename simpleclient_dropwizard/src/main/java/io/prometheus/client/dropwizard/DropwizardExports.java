@@ -25,6 +25,10 @@ public class DropwizardExports extends io.prometheus.client.Collector {
         this.registry = registry;
     }
 
+    public MetricRegistry getRegistry(){
+      return registry;
+    }
+
     /**
      * Export counter as prometheus counter.
      */

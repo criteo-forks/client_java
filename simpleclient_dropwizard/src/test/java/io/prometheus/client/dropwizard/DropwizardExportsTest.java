@@ -102,9 +102,9 @@ public class DropwizardExportsTest {
         }
         assertEquals(new Double(100), registry.getSampleValue("hist_count"));
         assertEquals(new Double(4950), registry.getSampleValue("hist_sum"));
-        for (double b : Arrays.asList(0.75, 0.95, 0.98, 0.99)) {
+        for (Double b : Arrays.asList(0.75, 0.95, 0.98, 0.99)) {
             assertEquals(new Double((b - 0.01) * 100), registry.getSampleValue("hist",
-                    new String[]{"quantile"}, new String[]{String.format("%.2f", b)}));
+                    new String[]{"quantile"}, new String[]{b.toString()}));
         }
         assertEquals(new Double(99), registry.getSampleValue("hist", new String[]{"quantile"},
                 new String[]{"0.999"}));

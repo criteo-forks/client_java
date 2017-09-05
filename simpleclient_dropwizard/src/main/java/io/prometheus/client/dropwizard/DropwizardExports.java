@@ -132,7 +132,7 @@ public class DropwizardExports extends io.prometheus.client.Collector {
      * @param name metric name.
      * @return the sanitized metric name.
      */
-    public static String sanitizeMetricName(String name){
+    public String sanitizeMetricName(String name) {
         return name.replaceAll("[^a-zA-Z0-9:_]", "_");
     }
 

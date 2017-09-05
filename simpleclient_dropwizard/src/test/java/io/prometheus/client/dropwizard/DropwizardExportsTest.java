@@ -17,11 +17,12 @@ public class DropwizardExportsTest {
 
     private CollectorRegistry registry = new CollectorRegistry();
     private MetricRegistry metricRegistry;
+    private DropwizardExports dropwizardExports;
 
     @Before
     public void setUp() {
         metricRegistry = new MetricRegistry();
-        new DropwizardExports(metricRegistry).register(registry);
+        dropwizardExports = new DropwizardExports(metricRegistry).register(registry);
     }
 
     @Test
@@ -132,6 +133,6 @@ public class DropwizardExportsTest {
 
     @Test
     public void testSanitizeMetricName() {
-        assertEquals("Foo_Bar_metric_mame", DropwizardExports.sanitizeMetricName("Foo.Bar-metric,mame"));
+        assertEquals("Foo_Bar_metric_mame", dropwizardExports.sanitizeMetricName("Foo.Bar-metric,mame"));
     }
 }
